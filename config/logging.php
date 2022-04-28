@@ -1,8 +1,10 @@
 <?php
 
-use Monolog\Handler\NullHandler;
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\SyslogUdpHandler;
+use Monolog\Handler\{
+    NullHandler,
+    StreamHandler,
+    SyslogUdpHandler
+};
 
 return [
 
@@ -78,10 +80,11 @@ return [
         'papertrail' => [
             'driver' => 'monolog',
             'level' => env('LOG_LEVEL', 'debug'),
-            'handler' => SyslogUdpHandler::class,
+            'handler' => env('LOG_PAPERTRAIL_HANDLER', SyslogUdpHandler::class),
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
             ],
         ],
 
