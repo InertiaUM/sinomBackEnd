@@ -40,6 +40,11 @@ class LogController extends Controller
             return redirect('/');
         }
     }
+    public function actionlogout()
+    {
+        Auth::logout();
+        return view('dashboard');
+    }
 
     /**
      * Show the form for creating a new resource.
