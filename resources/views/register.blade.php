@@ -21,22 +21,28 @@
         </div>
         <div class="d-flex flex-column p-2 bd-highlight align-items-center px-5 position-absolute w-100 bottom-0 bg-white rounded-top-3">
             <h3>
-                Welcome Back
+                Register
             </h3>
             <p class="text-success">
-                Login to your account
+                Create Your Account
             </p>
             <div class="form-floating mb-3 col-12">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating col-12">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="text" class="form-control" id="floatingCompanyCode" placeholder="Company Code">
+                <label for="floatingCompanyCode">Company Code</label>
             </div>
-            <a href="#" class="link-primary align-self-end">Forgot Password</a>
-            <button type="button" class="btn btn-primary col-8 my-3">Log In</button>
-            <p>Don't have account? <a href="{{ route('register') }}" class="link-primary align-self-end">Register</a></p>
+            <div class="form-floating mb-3 col-12">
+                <input type="password" class="form-control" id="floatingInput" placeholder="Password">
+                <label for="floatingInput">Password</label>
+            </div>
+            <div class="form-floating col-12">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Confirm Password">
+                <label for="floatingPassword">Conirm Password</label>
+            </div>
+            <button type="button" class="btn btn-primary col-8 my-3">Register</button>
         </div>
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
