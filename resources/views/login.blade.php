@@ -36,7 +36,7 @@
             </div>
             <a href="#" class="link-primary align-self-end">Forgot Password</a>
             <button type="button" class="btn btn-primary col-8 my-3">Log In</button>
-            <p>Don't have account? <a href="#" class="link-primary align-self-end">Register</a></p>
+            <p>Don't have account? <a href="/register" class="link-primary align-self-end">Register</a></p>
         </div>
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
