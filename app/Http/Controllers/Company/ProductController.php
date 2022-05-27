@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\{StoreProductRequest, UpdateProductRequest};
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -36,7 +37,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        // Auth::user()->company->products()->create(); :: how to insert
     }
 
     /**
