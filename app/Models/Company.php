@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\{Builder, Model};
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Company extends Model
@@ -17,7 +18,39 @@ class Company extends Model
         'email',
         'address',
         'loa',
-    ];
+    ],
+    $hidden = ['verified_at'],
+    
+    $appends = ['verified'];
+
+    public function verified(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => !empty($this->verified_at)
+        );
+    }
+
+    /**
+     * Scope unverified companies
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeUnverified(Builder $query): Builder
+    {
+        return $query->whereNull('verified_at');
+    }
+
+    /**
+     * SCope verified companies
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeVerified(Builder $query): Builder
+    {
+        return $query->whereNotNull('verified_At');
+    }
 
     /**
      * Get all of the users for the Company

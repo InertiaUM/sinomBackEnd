@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Superadmin;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class VerifyCompanyController extends Controller
 {
@@ -13,9 +14,11 @@ class VerifyCompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        //
+        return view('dashboard', [
+            'companies' => Company::query()->unverified()->get()
+        ]);
     }
 
     /**
