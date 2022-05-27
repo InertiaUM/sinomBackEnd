@@ -11,9 +11,9 @@ class UpdateCompanyInfoRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateCompanyInfoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'efficiency' => ['required', 'string'],
+            'organization' => ['required', 'string'],
+            'commisioner_report' => ['required', 'string'],
         ];
     }
 }

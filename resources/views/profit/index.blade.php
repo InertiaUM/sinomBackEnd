@@ -35,10 +35,10 @@
                                     <x-jet-button>Edit</x-jet-button>
                                 </a>
 
-                                <form method="POST" action="{{ route('verification.destroy', [$product, $profit]) }}">
+                                <form method="POST" action="{{ route('product.profit.destroy', [$product, $profit]) }}">
                                     @method('DELETE')
                                     @csrf
-                                    <x-jet-danger-button>
+                                    <x-jet-danger-button type="submit">
                                         {{ __('Hapus') }}
                                     </x-jet-danger-button>
                                 </form>

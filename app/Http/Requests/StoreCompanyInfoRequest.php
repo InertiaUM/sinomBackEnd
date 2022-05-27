@@ -11,9 +11,9 @@ class StoreCompanyInfoRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,12 @@ class StoreCompanyInfoRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'efficiency' => ['required', 'string'],
+            'organization' => ['required', 'string'],
+            'commisioner_report' => ['required', 'string'],
         ];
     }
 }

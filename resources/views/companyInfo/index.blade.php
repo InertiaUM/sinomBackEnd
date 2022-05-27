@@ -1,14 +1,14 @@
 <x-sinom-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Info Perusahaan').$companyInfo->name }}
+            {{ __('Info Perusahaan ').$company->name }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:p-6 lg:p-8 bg-white rounded-md">
 
-            <a href="{{ route('companyInfo.create', $companyInfo) }}">
+            <a href="{{ route('info.create') }}">
                 <x-jet-button>Tambah Data</x-jet-button>
             </a>
 
@@ -16,29 +16,31 @@
                 <thead class="bg-angin text-white">
                     <tr>
                         <th class="p-2">No</th>
-                        <th class="p-2">Rentang Waktu</th>
-                        <th class="p-2">Kuantitas</th>
-                        <th class="p-2">Profit</th>
+                        <th class="p-2">Tanggal Pembaruan</th>
+                        <th class="p-2">Data Efisiensi</th>
+                        <th class="p-2">Organisasi</th>
+                        <th class="p-2">Laporan Komisaris</th>
                         <th class="p-2">Tindakan</th>
                     </tr>
                 </thead>
                 <tbody class="border border-angin">
-                    @forelse ($product->profits as $key => $profit)
+                    @forelse ($company->infos as $key => $info)
                         <tr class="border border-angin">
                             <td class="p-2">{{ 1 + $key }}</td>
-                            <td class="p-2">{{ $profit->range }}</td>
-                            <td class="p-2">{{ $profit->qtyUnits }}</td>
-                            <td class="p-2">{{ $profit->readProfit }}</td>
+                            <td class="p-2">{{ $info->created_at->translatedFormat('j F Y H:m') }}</td>
+                            <td class="p-2">{{ $info->efficiency }}</td>
+                            <td class="p-2">{{ $info->organization }}</td>
+                            <td class="p-2">{{ $info->commisioner_report }}</td>
                             <td class="flex items-center gap-x-4 p-2">
 
-                                <a href="{{ route('product.profit.edit', [$product, $profit]) }}">
+                                {{-- <a href="{{ route('info.edit', $info) }}">
                                     <x-jet-button>Edit</x-jet-button>
-                                </a>
+                                </a> --}}
 
-                                <form method="POST" action="{{ route('verification.destroy', [$product, $profit]) }}">
+                                <form method="POST" action="{{ route('info.destroy', $info) }}">
                                     @method('DELETE')
                                     @csrf
-                                    <x-jet-danger-button>
+                                    <x-jet-danger-button type="submit">
                                         {{ __('Hapus') }}
                                     </x-jet-danger-button>
                                 </form>
