@@ -32,6 +32,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/product-analyst', function () {
+        return view('product-analyst');
+    })->name('product-analyst');
     Route::get('/organitation', function () {
         return view('organitation');
     })->name('organitation');
