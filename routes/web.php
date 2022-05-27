@@ -39,11 +39,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/organization', function () {
         return view('organization');
     })->name('organization');
-    Route::get('/organitation/detail', function () {
-        return view('organitation-detail');
-    })->name('organitation-detail');
+    Route::get('/organization/detail', function () {
+        return view('organization-detail');
+    })->name('organization-detail');
 
     Route::middleware('superadmin')->group(function () {
         Route::resource('verification', VerifyCompanyController::class)->except(['create', 'store', 'edit']);
+        Route::get('verification/{verification}/file', [VerifyCompanyController::class, 'file'])->name('verification.file');
     });
 });

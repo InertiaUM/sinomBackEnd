@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Builder, Model};
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class Company extends Model
 {
@@ -21,13 +22,46 @@ class Company extends Model
     ],
     $hidden = ['verified_at'],
     
-    $appends = ['isVerified'];
+    $appends = ['isVerified', 'openFile'];
 
+    /**
+     * Make sure if this record verified or not
+     *
+     * @return Attribute
+     */
     public function isVerified(): Attribute
     {
         return Attribute::make(
             get: fn() => !empty($this->verified_at)
         );
+    }
+
+    /**
+     * Open the file
+     *
+     * @return Attribute
+     */
+    public function openFile(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => $this->validateIfExist()
+        );
+    }
+
+    /**
+     * Extension of openFile to validate if exist
+     *
+     * @return void
+     */
+    private function validateIfExist()
+    {
+        $path = storage_path('app/'.$this->loa);
+
+        if (Storage::disk('local')->exists($this->loa)) {
+            return response()->file($path);
+        }
+
+        abort(404);
     }
 
     /**

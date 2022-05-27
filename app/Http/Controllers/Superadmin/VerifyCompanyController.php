@@ -91,4 +91,15 @@ class VerifyCompanyController extends Controller
     {
         //
     }
+
+    /**
+     * Open the file for verification
+     *
+     * @param Company $verification
+     * @return void
+     */
+    public function file(Company $verification)
+    {
+        return $verification->openFile;
+    }
 }

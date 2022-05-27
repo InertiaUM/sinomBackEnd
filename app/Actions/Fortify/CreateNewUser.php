@@ -28,7 +28,7 @@ class CreateNewUser implements CreatesNewUsers
             'loa' => ['required', 'file', 'max:1024', 'mimetypes:application/pdf']
         ]);
 
-        $directory = Company::FOLDER.date('Y/m/d/');
+        $directory = Company::FOLDER.date('Y/m/d');
 
         $company = Company::create([
             'name' => $input['name'],
