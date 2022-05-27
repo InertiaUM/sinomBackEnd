@@ -1,13 +1,13 @@
 <div x-data="{open:false}">
     <a
-    href="{{ $href ?? 'javascript:void(0)' }}"
+    href="{{ $href ?: 'javascript:void(0)' }}"
     @if (!$href)
     @click="open = !open"
     @click.away="open = false"
     @close.stop="open = false"
     @endif
-    class="pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white hover:text-emerald-800 dark:hover:text-white hover:bg-emerald-300 dark:hover:bg-gray-800 hover:border-emerald-400 focus:outline-none focus:text-emerald-800 focus:bg-emerald-300 focus:border-emerald-400 transition flex items-center"
-    :class="{'bg-emerald-400': open}"
+    class="pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white hover:text-amber-800 dark:hover:text-white hover:bg-amber-300 dark:hover:bg-gray-800 hover:border-amber-400 focus:outline-none focus:text-amber-800 focus:bg-amber-300 focus:border-amber-400 transition flex items-center"
+    :class="{'bg-amber-400': open}"
     >
         <i class="mdi mdi-{{ $icon }} mr-4"></i>
         <span>{{ __($title) }}</span>
@@ -22,7 +22,7 @@
 
     <div x-show="open" class="mt-2 space-y-2 px-4 mb-4">
         @foreach ($subs as $key)
-        <a href="{{ $key->link }}" class="block px-4 text-sm text-white transition-colors duration-200 rounded-md hover:text-emerald-600">
+        <a href="{{ $key->link }}" class="block px-4 text-sm text-white transition-colors duration-200 rounded-md hover:text-amber-600">
             <i class="mdi mdi-{{ $key->icon }} mr-4 align-middle"></i>
             <span>{{ __($key->title) }}</span>
         </a>

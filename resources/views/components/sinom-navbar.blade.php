@@ -101,6 +101,12 @@
 <aside x-show="open" x-transition:enter="transition-all ease-in-out duration-1000" x-transition:enter-start="transform -translate-x-full" x-transition:enter-end="transform transform-x-0" x-transition:leave="transition-all ease-in-out duration-1000" x-transition:leave-start="transform transform-x-0" x-transition:leave-end="transform -translate-x-full" @click.away="open = false" @keydown.escape="open = false" class="bg-amber-800 dark:bg-gray-700 fixed top-20 bottom-0 w-64 overflow-y-auto z-20">
     <!-- Responsive Settings Options -->
     <div class="pt-4 pb-1 space-y-1">
+        <x-sinom-dropdown icon="home-outline" title="Dashboard" :href="route('dashboard')" />
 
+        @can('superAdministrate', Auth::user())
+        <x-sinom-dropdown icon="archive" title="Administrator" :subs="[
+            (object) ['link' => route('verification.index'), 'icon' => 'account-multiple', 'title' => 'Verifikasi Calon Perusahaan'],
+        ]" />
+        @endcan
     </div>
 </aside>
