@@ -1,9 +1,9 @@
 <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->
-<nav class="bg-amber-600 dark:bg-slate-900 border-b-4 border-yellow-400 fixed w-full top-0 shadow-lg text-white z-20 rounded-br-[2rem]">
+<nav class="bg-angin dark:bg-slate-900 border-b-4 border-yellow-400 fixed w-full top-0 shadow-lg text-slate-800 dark:text-slate-50 z-20 rounded-br-[2rem]">
     <!-- Primary Navigation Menu -->
     <div class="flex justify-between h-20">
         <!-- Logo -->
-        <div class="bg-amber-800 dark:bg-slate-800 box-border md:w-80 py-2 px-4 flex justify-between items-center shadow-md">
+        <div class="bg-amber-400 dark:bg-slate-800 box-border md:w-80 py-2 px-4 flex justify-between items-center shadow-md">
             <a href="{{ route('dashboard') }}" class="flex space-x-3 items-center">
                 SINOM
             </a>

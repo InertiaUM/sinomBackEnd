@@ -3,7 +3,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Organitational Efficiency') }}
+            {{ __('organizational Efficiency') }}
         </h2>
     </x-slot>
 
@@ -46,7 +46,7 @@
                         <div class="portfolio-links">
                             <a href="https://documentaal.nl/wp-content/uploads/2018/10/efficiency-680x380.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Di tengah persaingan sektor Industri jamu yang semakin ketat, Sido Muncul telah berhasil memiliki market share terluas dan reputasi yang baik sebagai industri jamu terbesar di Indonesia. Keberhasilan yang telah dicapai saat ini tentunya tidak terlepas dari peran dan pelaku pendiri industri ini.">
                                 <i class="bx bx-plus"></i></a>
-                            <a href="/organitation/detail" title="More Details"><i class="bx bx-link"></i></a>
+                            <a href="/organization/detail" title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                         <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
                             <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                            <a href="/organitation/detail" title="More Details"><i class="bx bx-link"></i></a>
+                            <a href="/organization/detail" title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
                             <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                            <a href="/organitation/detail" title="More Details"><i class="bx bx-link"></i></a>
+                            <a href="/organization/detail" title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
