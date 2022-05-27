@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Superadmin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Superadmin\VerifyCompanyRequest;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -16,7 +17,7 @@ class VerifyCompanyController extends Controller
      */
     public function index(): View
     {
-        return view('dashboard', [
+        return view('verification.index', [
             'companies' => Company::query()->unverified()->get()
         ]);
     }
@@ -45,10 +46,10 @@ class VerifyCompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Company  $verification
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show(Company $verification)
     {
         //
     }
@@ -56,10 +57,10 @@ class VerifyCompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Company  $verification
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit(Company $verification)
     {
         //
     }
@@ -68,21 +69,25 @@ class VerifyCompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Company  $verification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(VerifyCompanyRequest $request, Company $verification)
     {
-        //
+        $request->validated();
+
+        $verification->setCompanyAsVerified();
+
+        return redirect()->route('verification.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Company  $verification
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy(Company $verification)
     {
         //
     }

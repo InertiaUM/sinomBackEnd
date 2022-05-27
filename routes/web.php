@@ -34,7 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::middleware('superadmin')->group(function() {
-        Route::resource('verification', VerifyCompanyController::class);
+        Route::resource('verification', VerifyCompanyController::class)->except(['create', 'store', 'edit']);
     });
 });
 

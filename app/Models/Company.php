@@ -21,9 +21,9 @@ class Company extends Model
     ],
     $hidden = ['verified_at'],
     
-    $appends = ['verified'];
+    $appends = ['isVerified'];
 
-    public function verified(): Attribute
+    public function isVerified(): Attribute
     {
         return Attribute::make(
             get: fn() => !empty($this->verified_at)
@@ -42,14 +42,29 @@ class Company extends Model
     }
 
     /**
-     * SCope verified companies
+     * Scope verified companies
      *
      * @param Builder $query
      * @return Builder
      */
     public function scopeVerified(Builder $query): Builder
     {
-        return $query->whereNotNull('verified_At');
+        return $query->whereNotNull('verified_at');
+    }
+
+    /**
+     * Set the company as verified
+     *
+     * @return Company
+     */
+    public function setCompanyAsVerified(): Company
+    {
+        if (empty($this->verified_at)) {
+            $this->verified_at = now();
+            $this->save();
+        }
+
+        return $this;
     }
 
     /**
