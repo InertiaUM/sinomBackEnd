@@ -2,8 +2,8 @@
 
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-dark leading-tight">
-            {{ __('Organitational Efficiency') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('organizational Efficiency') }}
         </h2>
     </x-slot>
     <main>
