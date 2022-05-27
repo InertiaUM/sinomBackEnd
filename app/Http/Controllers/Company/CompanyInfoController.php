@@ -45,10 +45,10 @@ class CompanyInfoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CompanyInfo  $companyInfo
+     * @param  \App\Models\CompanyInfo  $info
      * @return \Illuminate\Http\Response
      */
-    public function show(CompanyInfo $companyInfo)
+    public function show(CompanyInfo $info)
     {
         //
     }
@@ -56,10 +56,10 @@ class CompanyInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CompanyInfo  $companyInfo
+     * @param  \App\Models\CompanyInfo  $info
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyInfo $companyInfo)
+    public function edit(CompanyInfo $info)
     {
         //
     }
@@ -68,10 +68,10 @@ class CompanyInfoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateCompanyInfoRequest  $request
-     * @param  \App\Models\CompanyInfo  $companyInfo
+     * @param  \App\Models\CompanyInfo  $info
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyInfoRequest $request, CompanyInfo $companyInfo)
+    public function update(UpdateCompanyInfoRequest $request, CompanyInfo $info)
     {
         //
     }
@@ -79,10 +79,10 @@ class CompanyInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CompanyInfo  $companyInfo
+     * @param  \App\Models\CompanyInfo  $info
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompanyInfo $companyInfo)
+    public function destroy(CompanyInfo $info)
     {
         //
     }

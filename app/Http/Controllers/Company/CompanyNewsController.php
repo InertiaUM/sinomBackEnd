@@ -42,10 +42,10 @@ class CompanyNewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CompanyNews  $companyNews
+     * @param  \App\Models\CompanyNews  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(CompanyNews $companyNews)
+    public function show(CompanyNews $news)
     {
         //
     }
@@ -53,10 +53,10 @@ class CompanyNewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CompanyNews  $companyNews
+     * @param  \App\Models\CompanyNews  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyNews $companyNews)
+    public function edit(CompanyNews $news)
     {
         //
     }
@@ -65,10 +65,10 @@ class CompanyNewsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateCompanyNewsRequest  $request
-     * @param  \App\Models\CompanyNews  $companyNews
+     * @param  \App\Models\CompanyNews  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyNewsRequest $request, CompanyNews $companyNews)
+    public function update(UpdateCompanyNewsRequest $request, CompanyNews $news)
     {
         //
     }
@@ -76,10 +76,10 @@ class CompanyNewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CompanyNews  $companyNews
+     * @param  \App\Models\CompanyNews  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompanyNews $companyNews)
+    public function destroy(CompanyNews $news)
     {
         //
     }

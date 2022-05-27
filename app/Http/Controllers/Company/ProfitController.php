@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profit;
+use App\Models\{Product, Profit};
 use App\Http\Requests\{StoreProfitRequest, UpdateProfitRequest};
 
 class ProfitController extends Controller
@@ -13,7 +13,7 @@ class ProfitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $product)
     {
         //
     }
@@ -23,7 +23,7 @@ class ProfitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Product $product)
     {
         //
     }
@@ -34,9 +34,9 @@ class ProfitController extends Controller
      * @param  \App\Http\Requests\StoreProfitRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProfitRequest $request)
+    public function store(StoreProfitRequest $request, Product $product)
     {
-        //
+        // $product->create($request->validated());
     }
 
     /**
@@ -45,7 +45,7 @@ class ProfitController extends Controller
      * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function show(Profit $profit)
+    public function show(Product $product, Profit $profit)
     {
         //
     }
@@ -68,7 +68,7 @@ class ProfitController extends Controller
      * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProfitRequest $request, Profit $profit)
+    public function update(UpdateProfitRequest $request, Product $product, Profit $profit)
     {
         //
     }
@@ -79,7 +79,7 @@ class ProfitController extends Controller
      * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profit $profit)
+    public function destroy(Product $product, Profit $profit)
     {
         //
     }

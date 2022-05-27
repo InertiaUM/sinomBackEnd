@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
-use App\Models\Rating;
+use App\Models\{Product, Rating};
 use App\Http\Requests\{StoreRatingRequest, UpdateRatingRequest};
 
 class RatingController extends Controller
@@ -13,7 +13,7 @@ class RatingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $product)
     {
         //
     }
@@ -23,7 +23,7 @@ class RatingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Product $product)
     {
         //
     }
@@ -34,9 +34,9 @@ class RatingController extends Controller
      * @param  \App\Http\Requests\StoreRatingRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRatingRequest $request)
+    public function store(StoreRatingRequest $request, Product $product)
     {
-        //
+        // $product->rating()->create();
     }
 
     /**
@@ -45,7 +45,7 @@ class RatingController extends Controller
      * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function show(Rating $rating)
+    public function show(Product $product, Rating $rating)
     {
         //
     }
@@ -56,7 +56,7 @@ class RatingController extends Controller
      * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rating $rating)
+    public function edit(Product $product, Rating $rating)
     {
         //
     }
@@ -68,7 +68,7 @@ class RatingController extends Controller
      * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRatingRequest $request, Rating $rating)
+    public function update(UpdateRatingRequest $request, Product $product, Rating $rating)
     {
         //
     }
@@ -79,7 +79,7 @@ class RatingController extends Controller
      * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rating $rating)
+    public function destroy(Product $product, Rating $rating)
     {
         //
     }
