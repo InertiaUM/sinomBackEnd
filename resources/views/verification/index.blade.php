@@ -6,6 +6,7 @@
                     <tr>
                         <th class="p-2">No</th>
                         <th class="p-2">Nama Perusahaan</th>
+                        <th class="p-2">Alamat</th>
                         <th class="p-2">Berkas</th>
                         <th class="p-2">Tindakan</th>
                     </tr>
@@ -15,6 +16,7 @@
                         <tr class="border border-angin">
                             <td class="p-2">{{ 1 + $key }}</td>
                             <td class="p-2">{{ $company->name }}</td>
+                            <td class="p-2">{{ $company->address }}</td>
                             <td class="p-2">
                                 <iframe class="w-48 md:w-96" src="{{ route('verification.file', $company) }}" frameborder="0"></iframe>
                             </td>
@@ -30,7 +32,7 @@
                         </tr>
                     @empty
                         <tr class="border-angin">
-                            <td class="p-2 text-center" colspan="3">Data tidak ditemukan</td>
+                            <td class="p-2 text-center" colspan="4">Data tidak ditemukan</td>
                         </tr>
                     @endforelse
                 </tbody>
