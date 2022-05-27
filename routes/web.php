@@ -21,11 +21,14 @@ use App\Http\Controllers\SettingsProfileController;
 |
 */
 
-// Route::get('/login', [LogController::class, 'index'])->name('login');
-// Route::get('/register', [LogController::class, 'register'])->name('register');
+// Route::get('/auth', [LogController::class, 'index'])->name('auth.login');
+// Route::get('/register', [LogController::class, 'register'])->name('auth.register');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/organitation', function () {
+    return view('organitation');
+})->name('organitation');
