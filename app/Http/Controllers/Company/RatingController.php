@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use App\Models\{Product, Rating};
 use App\Http\Requests\{StoreRatingRequest, UpdateRatingRequest};
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class RatingController extends Controller
 {
@@ -15,7 +18,9 @@ class RatingController extends Controller
      */
     public function index(Product $product)
     {
-        //
+        return view('rating.index', [
+            'product' => $product->load('products')
+        ]);
     }
 
     /**
@@ -25,7 +30,9 @@ class RatingController extends Controller
      */
     public function create(Product $product)
     {
-        //
+        return view('rating.create', [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -34,8 +41,10 @@ class RatingController extends Controller
      * @param  \App\Http\Requests\StoreRatingRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRatingRequest $request, Product $product)
+    public function store(StoreRatingRequest $request, Product $product): RedirectResponse
     {
+        $product->profits()->create($request->validated());
+        return redirect()->route('product.rating.index', $product);
         // $product->rating()->create();
     }
 
@@ -58,7 +67,10 @@ class RatingController extends Controller
      */
     public function edit(Product $product, Rating $rating)
     {
-        //
+        return view('rating.edit', [
+            'product' => $product,
+            'rating' => $rating
+        ]);
     }
 
     /**
@@ -68,9 +80,11 @@ class RatingController extends Controller
      * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRatingRequest $request, Product $product, Rating $rating)
+    public function update(UpdateRatingRequest $request, Product $product, Rating $rating): RedirectResponse
     {
-        //
+        $rating->update($request->validated());
+
+        return redirect()->route('product.rating.index', $product);
     }
 
     /**
@@ -79,8 +93,9 @@ class RatingController extends Controller
      * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product, Rating $rating)
+    public function destroy(Product $product, Rating $rating): RedirectResponse
     {
-        //
+        $rating->delete();
+        return redirect()->route('product.profit.index', $product);
     }
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use App\Models\CompanyNews;
 use App\Http\Requests\{StoreCompanyNewsRequest, UpdateCompanyNewsRequest};
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class CompanyNewsController extends Controller
 {
@@ -13,9 +16,11 @@ class CompanyNewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        //
+        return view('companyNews.index', [
+            'company' => Auth::user()->company->load('news')
+        ]);
     }
 
     /**
@@ -23,9 +28,9 @@ class CompanyNewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('companyNews.create');
     }
 
     /**
@@ -34,9 +39,13 @@ class CompanyNewsController extends Controller
      * @param  \App\Http\Requests\StoreCompanyNewsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCompanyNewsRequest $request)
+    public function store(StoreCompanyNewsRequest $request): RedirectResponse
     {
-        //
+        Auth::user()->company
+        ->news()
+        ->create($request->validated());
+
+        return redirect()->route('new.index');
     }
 
     /**
@@ -58,7 +67,9 @@ class CompanyNewsController extends Controller
      */
     public function edit(CompanyNews $news)
     {
-        //
+        return view('companyNews.edit', [
+            'companyNews' => $news
+        ]);
     }
 
     /**
@@ -68,9 +79,11 @@ class CompanyNewsController extends Controller
      * @param  \App\Models\CompanyNews  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyNewsRequest $request, CompanyNews $news)
+    public function update(UpdateCompanyNewsRequest $request, CompanyNews $news): RedirectResponse
     {
-        //
+        $news->update($request->validated());
+
+        return redirect()->route('new.index');
     }
 
     /**
@@ -79,8 +92,9 @@ class CompanyNewsController extends Controller
      * @param  \App\Models\CompanyNews  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompanyNews $news)
+    public function destroy(CompanyNews $news): RedirectResponse
     {
-        //
+        $news->delete();
+        return redirect()->route('new.index');
     }
 }

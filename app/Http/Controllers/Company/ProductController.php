@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\{StoreProductRequest, UpdateProductRequest};
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
@@ -16,7 +18,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('product.index', [
+            'product' => Auth::user()->product->load('products')
+        ]);
     }
 
     /**
@@ -24,9 +28,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('product.create');
     }
 
     /**
@@ -35,9 +39,13 @@ class ProductController extends Controller
      * @param  \App\Http\Requests\StoreProductRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreProductRequest $request): RedirectResponse
     {
         // Auth::user()->company->products()->create(); :: how to insert
+        Auth::user()->company
+        ->products()
+        ->create($request->validated());
+        return redirect()->route('product.index');
     }
 
     /**
@@ -59,7 +67,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('product.edit', [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -69,9 +79,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product): RedirectResponse
     {
-        //
+        $product->update($request->validated());
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -80,8 +92,9 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product): RedirectResponse
     {
-        //
+        $product->delete();
+        return redirect()->route('product.index');
     }
 }
