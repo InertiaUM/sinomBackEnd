@@ -107,5 +107,11 @@
             (object) ['link' => route('verification.index'), 'icon' => 'account-multiple', 'title' => 'Verifikasi Calon Perusahaan'],
         ]" />
         @endcan
+
+        @can('view', Auth::user()->company)
+            <x-sinom-dropdown icon="home-outline" title="Informasi Perusahaan" :href="route('info.index')" />
+            <x-sinom-dropdown icon="home-outline" title="Berita Perusahaan" :href="route('news.index')" />
+            <x-sinom-dropdown icon="home-outline" title="Produk" :href="route('product.index')" />
+        @endcan
     </div>
 </aside>
