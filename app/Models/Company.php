@@ -86,4 +86,24 @@ class Company extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * Get all of the infos for the Company
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function infos(): HasMany
+    {
+        return $this->hasMany(CompanyInfo::class);
+    }
+
+    /**
+     * Get all of the news for the Company
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function news(): HasMany
+    {
+        return $this->hasMany(CompanyNews::class);
+    }
 }
