@@ -12,5 +12,5 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-sinom-layout>
 sinom
