@@ -72,7 +72,7 @@
                         {{ __('Already registered?') }}
                     </a>
 
-                    <x-jet-buttontype="button" class="btn btn-primary col-12 my-3">{{__('Register') }}</button>
+                    <x-jet-button class="btn btn-primary col-12 my-3">{{__('Register') }}</x-jet-button>
                 </div>
             </form>
             @if (JoelButcher\Socialstream\Socialstream::show())
