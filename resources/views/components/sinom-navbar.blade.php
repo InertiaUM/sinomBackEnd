@@ -125,6 +125,12 @@ x-transition:leave-end="transform -translate-x-full"
 class="bg-amber-800 dark:bg-gray-700 fixed top-20 bottom-0 w-64 overflow-y-auto z-20">
     <!-- Responsive Settings Options -->
     <div class="pt-4 pb-1 space-y-1">
-        
+        <x-sinom-dropdown icon="home-outline" title="Dashboard" :href="route('dashboard')"/>
+
+        @can('superAdministrate', Auth::user())
+        <x-sinom-dropdown icon="archive" title="Administrator" :subs="[
+            (object) ['link' => route('verification.index'), 'icon' => 'account-multiple', 'title' => 'Verifikasi Calon Perusahaan'],
+        ]"/>
+        @endcan
     </div>
 </aside>

@@ -2,13 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{HomeController};
 use App\Http\Controllers\AnalisaKonsumenController;
 use App\Http\Controllers\AnalisaProdukController;
 use App\Http\Controllers\AnalisaProfitController;
 use App\Http\Controllers\OrgEfficiencyController;
 use App\Http\Controllers\ScreenVersusController;
 use App\Http\Controllers\SettingsProfileController;
+use App\Http\Controllers\Superadmin\{VerifyCompanyController};
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,13 @@ use App\Http\Controllers\SettingsProfileController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::middleware('superadmin')->group(function() {
+        Route::resource('verification', VerifyCompanyController::class);
+    });
+});
+
