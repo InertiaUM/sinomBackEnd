@@ -4,21 +4,16 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\CompanyInfo;
-use App\Http\Requests\{
-    StoreCompanyInfoRequest,
-    UpdateCompanyInfoRequest
-};
+use App\Http\Requests\{StoreProfitRequest, UpdateProfitRequest};
+use Illuminate\Http\RedirectResponse;
 
 class CompanyInfoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(CompanyInfo $companyInfo)
     {
-        //
+        return view('companyInfo.index', [
+            'companyInfo' => $companyInfo
+        ]);
     }
 
     /**
@@ -26,29 +21,33 @@ class CompanyInfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(CompanyInfo $companyInfo)
     {
-        //
+        return view('companyInfo.create', [
+            'companyInfo' => $companyInfo
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCompanyInfoRequest  $request
+     * @param  \App\Http\Requests\StoreProfitRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCompanyInfoRequest $request)
+    public function store(StoreProfitRequest $request, CompanyInfo $companyInfo): RedirectResponse
     {
-        //
+        $companyInfo->company_infos()->create($request->validated());
+
+        return redirect()->route('companyInfo.index', $companyInfo);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CompanyInfo  $info
+     * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function show(CompanyInfo $info)
+    public function show(CompanyInfo $companyInfo)
     {
         //
     }
@@ -56,34 +55,40 @@ class CompanyInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CompanyInfo  $info
+     * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyInfo $info)
+    public function edit(CompanyInfo $companyInfo)
     {
-        //
+        return view('companyInfo.edit', [
+            'companyInfo' => $companyInfo
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCompanyInfoRequest  $request
-     * @param  \App\Models\CompanyInfo  $info
+     * @param  \App\Http\Requests\UpdateProfitRequest  $request
+     * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyInfoRequest $request, CompanyInfo $info)
+    public function update(UpdateProfitRequest $request, CompanyInfo $companyInfo): RedirectResponse
     {
-        //
+        $companyInfo->update($request->validated());
+
+        return redirect()->route('companyInfo.index', $companyInfo);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CompanyInfo  $info
+     * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompanyInfo $info)
+    public function destroy(CompanyInfo $companyInfo): RedirectResponse
     {
-        //
+        $companyInfo->delete();
+
+        return redirect()->route('companyInfo.index', $companyInfo);
     }
 }
