@@ -10,6 +10,8 @@ class Company extends Model
 {
     use HasFactory;
 
+    public const FOLDER = 'loa/';
+
     protected $fillable = [
         'name',
         'email',

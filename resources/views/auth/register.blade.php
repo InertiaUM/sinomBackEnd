@@ -6,7 +6,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form enctype="multipart/form-data" method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
@@ -20,13 +20,23 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="address" value="{{ __('Alamat') }}" />
+                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required />
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-jet-label for="password_confirmation" value="{{ __('Konfirmasi Password') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="loa" value="{{ __('Berkas Kerjasama Penggunaan SINOM (Maksimal 1 mb berbentuk pdf)') }}" />
+                <x-jet-input id="loa" class="block mt-1 w-full" type="file" name="loa" required accept="application/pdf" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
