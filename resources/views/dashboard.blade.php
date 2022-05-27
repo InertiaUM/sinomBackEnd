@@ -19,12 +19,12 @@
                 <h5 class="card-title text-dark text-center">Analisa Konsumen</h5>
             </div>
         </a>
-        <div class="card col-6">
+        <a href="/comparison" class="card col-6">
             <img src="{{url('/icons/analysing.png')}}" alt="Card image cap" class="w-20 mx-auto mt-3">
             <div class="card-body">
                 <h5 class="card-title text-dark text-center">Bandingkan</h5>
             </div>
-        </div>
+        </a>
         <a href="/product-analyst" class="card col-6">
             <img src="{{url('/icons/products.png')}}" alt="Card image cap" class="w-20 mx-auto mt-3">
             <div class="card-body">

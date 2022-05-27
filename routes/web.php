@@ -44,6 +44,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/product-analyst', function () {
         return view('product-analyst');
     })->name('product-analyst');
+    Route::get('/comparison', function () {
+        return view('comparison');
+    })->name('comparison');
     Route::get('/consument-analyst', function () {
         return view('consument-analyst');
     })->name('consument-analyst');
