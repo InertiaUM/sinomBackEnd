@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use App\Models\{Product, Profit};
 use App\Http\Requests\{StoreProfitRequest, UpdateProfitRequest};
+use Illuminate\Http\RedirectResponse;
 
 class ProfitController extends Controller
 {
@@ -15,7 +16,9 @@ class ProfitController extends Controller
      */
     public function index(Product $product)
     {
-        //
+        return view('profit.index', [
+            'product' => $product->load('profits')
+        ]);
     }
 
     /**
@@ -25,18 +28,22 @@ class ProfitController extends Controller
      */
     public function create(Product $product)
     {
-        //
+        return view('profit.create', [
+            'product' => $product
+        ]);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreProfitRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProfitRequest $request, Product $product)
+    public function store(StoreProfitRequest $request, Product $product): RedirectResponse
     {
-        // $product->create($request->validated());
+        $product->profits()->create($request->validated());
+
+        return redirect()->route('product.profit.index', $product);
     }
 
     /**
@@ -49,16 +56,19 @@ class ProfitController extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profit $profit)
+    public function edit(Product $product, Profit $profit)
     {
-        //
+        return view('profit.edit', [
+            'product' => $product,
+            'profit' => $profit
+        ]);
     }
 
     /**
@@ -68,9 +78,11 @@ class ProfitController extends Controller
      * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProfitRequest $request, Product $product, Profit $profit)
+    public function update(UpdateProfitRequest $request, Product $product, Profit $profit): RedirectResponse
     {
-        //
+        $profit->update($request->validated());
+
+        return redirect()->route('product.profit.index', $product);
     }
 
     /**
@@ -79,8 +91,10 @@ class ProfitController extends Controller
      * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product, Profit $profit)
+    public function destroy(Product $product, Profit $profit): RedirectResponse
     {
-        //
+        $profit->delete();
+
+        return redirect()->route('product.profit.index', $product);
     }
 }

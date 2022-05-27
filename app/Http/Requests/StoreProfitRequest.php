@@ -11,9 +11,9 @@ class StoreProfitRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,12 @@ class StoreProfitRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'start_date' => ['required', 'date', 'before:end_date'],
+            'end_date' => ['required', 'date', 'after:start_date'],
+            'qty' => ['required', 'integer', 'min:1']
         ];
     }
 }

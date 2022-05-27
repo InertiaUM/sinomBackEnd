@@ -19,7 +19,7 @@
             <form autocomplete="off" method="POST" class="w-100 w-full" action="{{ route('login') }}">
                 @csrf
                 <div class="form-floating mb-3 col-12">
-                    <x-jet-input name='email' type="email" class="form-control" :value="old('email')" id="floatingInput" placeholder="name@example.com" required />
+                    <x-jet-input name="email" type="email" class="form-control" :value="old('email')" id="floatingInput" placeholder="name@example.com" required />
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating col-12">
