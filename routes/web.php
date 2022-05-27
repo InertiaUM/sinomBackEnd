@@ -36,9 +36,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/product-analyst', function () {
         return view('product-analyst');
     })->name('product-analyst');
-    Route::get('/organitation', function () {
-        return view('organitation');
-    })->name('organitation');
+    Route::get('/organization', function () {
+        return view('organization');
+    })->name('organization');
     Route::get('/organitation/detail', function () {
         return view('organitation-detail');
     })->name('organitation-detail');
