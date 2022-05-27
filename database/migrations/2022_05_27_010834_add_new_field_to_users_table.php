@@ -17,7 +17,7 @@ return new class extends Migration
             $table->tinyInteger('gender')->default(1)->comment('1: Laki-laki, 2: Perempuan');
             $table->date('birth_date')->nullable();
             $table->foreignId('company_id')->nullable()->constrained()->nullOnDelete();
-            $table->tinyInteger('role')->default(3)->comment('1: superadmin, 2: admin company, 3: manager');
+            $table->tinyInteger('role')->default(2)->comment('1: superadmin, 2: admin company, 3: manager');
         });
     }
 
