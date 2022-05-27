@@ -1,15 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LogController;
-use App\Http\Controllers\{HomeController};
-use App\Http\Controllers\AnalisaKonsumenController;
-use App\Http\Controllers\AnalisaProdukController;
-use App\Http\Controllers\AnalisaProfitController;
-use App\Http\Controllers\OrgEfficiencyController;
-use App\Http\Controllers\ScreenVersusController;
-use App\Http\Controllers\SettingsProfileController;
-use App\Http\Controllers\Superadmin\{VerifyCompanyController};
+use App\Http\Controllers\{
+    HomeController,
+    LogController,
+    OrgEfficiencyController,
+    ScreenVersusController,
+    SettingsProfileController
+};
+use App\Http\Controllers\Company\{
+    CompanyInfoController,
+    CompanyNewsController,
+    ProductController,
+    ProfitController,
+    RatingController
+};
+use App\Http\Controllers\Superadmin\{
+    VerifyCompanyController
+};
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -52,5 +60,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::middleware('superadmin')->group(function () {
         Route::resource('verification', VerifyCompanyController::class)->except(['create', 'store', 'edit']);
         Route::get('verification/{verification}/file', [VerifyCompanyController::class, 'file'])->name('verification.file');
+    });
+
+    Route::middleware('company.active')->group(function () {
+        Route::resource('info', CompanyInfoController::class);
+        Route::resource('news', CompanyNewsController::class);
+        Route::resource('product', ProductController::class);
+        Route::resource('product.profit', ProfitController::class);
+        Route::resource('product.rating', RatingController::class);
     });
 });

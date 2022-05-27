@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Company;
 
-use App\Models\Rating;
-use App\Http\Requests\StoreRatingRequest;
-use App\Http\Requests\UpdateRatingRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Http\Requests\{StoreProductRequest, UpdateProductRequest};
 
-class RatingController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class RatingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreRatingRequest  $request
+     * @param  \App\Http\Requests\StoreProductRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRatingRequest $request)
+    public function store(StoreProductRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class RatingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rating  $rating
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Rating $rating)
+    public function show(Product $product)
     {
         //
     }
@@ -53,10 +53,10 @@ class RatingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rating  $rating
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rating $rating)
+    public function edit(Product $product)
     {
         //
     }
@@ -64,11 +64,11 @@ class RatingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateRatingRequest  $request
-     * @param  \App\Models\Rating  $rating
+     * @param  \App\Http\Requests\UpdateProductRequest  $request
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRatingRequest $request, Rating $rating)
+    public function update(UpdateProductRequest $request, Product $product)
     {
         //
     }
@@ -76,10 +76,10 @@ class RatingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rating  $rating
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rating $rating)
+    public function destroy(Product $product)
     {
         //
     }

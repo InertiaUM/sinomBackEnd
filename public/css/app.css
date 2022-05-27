@@ -1226,6 +1226,9 @@ select {
 .w-64 {
   width: 16rem;
 }
+.w-screen {
+  width: 100vw;
+}
 .min-w-0 {
   min-width: 0px;
 }

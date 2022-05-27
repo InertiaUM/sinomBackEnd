@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Company;
 
+use App\Http\Controllers\Controller;
 use App\Models\CompanyNews;
-use App\Http\Requests\StoreCompanyNewsRequest;
-use App\Http\Requests\UpdateCompanyNewsRequest;
+use App\Http\Requests\{StoreCompanyNewsRequest, UpdateCompanyNewsRequest};
 
 class CompanyNewsController extends Controller
 {

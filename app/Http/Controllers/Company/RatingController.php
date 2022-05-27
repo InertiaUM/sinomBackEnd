@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Company;
 
-use App\Models\Profit;
-use App\Http\Requests\StoreProfitRequest;
-use App\Http\Requests\UpdateProfitRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Rating;
+use App\Http\Requests\{StoreRatingRequest, UpdateRatingRequest};
 
-class ProfitController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class ProfitController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProfitRequest  $request
+     * @param  \App\Http\Requests\StoreRatingRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProfitRequest $request)
+    public function store(StoreRatingRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class ProfitController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profit  $profit
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function show(Profit $profit)
+    public function show(Rating $rating)
     {
         //
     }
@@ -53,10 +53,10 @@ class ProfitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Profit  $profit
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profit $profit)
+    public function edit(Rating $rating)
     {
         //
     }
@@ -64,11 +64,11 @@ class ProfitController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProfitRequest  $request
-     * @param  \App\Models\Profit  $profit
+     * @param  \App\Http\Requests\UpdateRatingRequest  $request
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProfitRequest $request, Profit $profit)
+    public function update(UpdateRatingRequest $request, Rating $rating)
     {
         //
     }
@@ -76,10 +76,10 @@ class ProfitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Profit  $profit
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profit $profit)
+    public function destroy(Rating $rating)
     {
         //
     }

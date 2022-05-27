@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Company;
 
-use App\Models\CompanyInfo;
-use App\Http\Requests\StoreCompanyInfoRequest;
-use App\Http\Requests\UpdateCompanyInfoRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Profit;
+use App\Http\Requests\{StoreProfitRequest, UpdateProfitRequest};
 
-class CompanyInfoController extends Controller
+class ProfitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class CompanyInfoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCompanyInfoRequest  $request
+     * @param  \App\Http\Requests\StoreProfitRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCompanyInfoRequest $request)
+    public function store(StoreProfitRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class CompanyInfoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CompanyInfo  $companyInfo
+     * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function show(CompanyInfo $companyInfo)
+    public function show(Profit $profit)
     {
         //
     }
@@ -53,10 +53,10 @@ class CompanyInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CompanyInfo  $companyInfo
+     * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyInfo $companyInfo)
+    public function edit(Profit $profit)
     {
         //
     }
@@ -64,11 +64,11 @@ class CompanyInfoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCompanyInfoRequest  $request
-     * @param  \App\Models\CompanyInfo  $companyInfo
+     * @param  \App\Http\Requests\UpdateProfitRequest  $request
+     * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyInfoRequest $request, CompanyInfo $companyInfo)
+    public function update(UpdateProfitRequest $request, Profit $profit)
     {
         //
     }
@@ -76,10 +76,10 @@ class CompanyInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CompanyInfo  $companyInfo
+     * @param  \App\Models\Profit  $profit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompanyInfo $companyInfo)
+    public function destroy(Profit $profit)
     {
         //
     }

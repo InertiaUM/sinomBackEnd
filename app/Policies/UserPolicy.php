@@ -109,10 +109,10 @@ class UserPolicy
      * @param Company $company
      * @return boolean
      */
-    public function ownCompany(User $user, Company $company): bool
+    /* public function ownCompany(User $user, Company $company): bool
     {
         return $user->role !== 1 && $company->id === $user->company_id && $company->isVerified;
-    }
+    } */
 
     /**
      * Administrator on its own company privilleges
@@ -121,8 +121,8 @@ class UserPolicy
      * @param Company $company
      * @return boolean
      */
-    public function onlyCompanyAdministrator(User $user, Company $company): bool
+    /* public function onlyCompanyAdministrator(User $user, Company $company): bool
     {
         return $this->ownCompany($user, $company) && $user->role === 2;
-    }
+    } */
 }
