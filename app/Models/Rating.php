@@ -6,19 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Profit extends Model
+class Rating extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'start_date',
-        'end_date',
-        'qty',
-        'profit',
+        'age',
+        'rating'
     ];
 
     /**
-     * Get the product that owns the Profit
+     * Get the product that owns the Rating
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

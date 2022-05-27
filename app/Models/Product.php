@@ -6,24 +6,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Profit extends Model
+class Product extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'start_date',
-        'end_date',
-        'qty',
-        'profit',
+        'name',
+        'price',
+        'composition',
+        'usage',
     ];
 
     /**
-     * Get the product that owns the Profit
+     * Get the company that owns the Product
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function product(): BelongsTo
+    public function company(): BelongsTo
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Company::class);
     }
 }

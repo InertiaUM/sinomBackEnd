@@ -21,8 +21,8 @@ use App\Http\Controllers\SettingsProfileController;
 |
 */
 
-Route::get('/login', [LogController::class, 'index'])->name('login');
-Route::get('/register', [LogController::class, 'register'])->name('register');
+// Route::get('/login', [LogController::class, 'index'])->name('login');
+// Route::get('/register', [LogController::class, 'register'])->name('register');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
