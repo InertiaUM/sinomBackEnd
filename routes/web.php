@@ -32,6 +32,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/organitation', function () {
+        return view('organitation');
+    })->name('organitation');
+    Route::get('/organitation/detail', function () {
+        return view('organitation-detail');
+    })->name('organitation-detail');
 
     Route::middleware('superadmin')->group(function () {
         Route::resource('verification', VerifyCompanyController::class)->except(['create', 'store', 'edit']);
