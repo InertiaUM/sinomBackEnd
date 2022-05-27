@@ -111,7 +111,7 @@ class UserPolicy
      */
     public function ownCompany(User $user, Company $company): bool
     {
-        return $user->role !== 1 && $company->id === $user->company_id;
+        return $user->role !== 1 && $company->id === $user->company_id && $company->isVerified;
     }
 
     /**
